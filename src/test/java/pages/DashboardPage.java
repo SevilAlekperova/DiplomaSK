@@ -4,26 +4,21 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class DashboardPage extends BasePage {
     private final static String pagePath = "index.php?/dashboard";
 
     // Блок описания селекторов для элементов
-    private final By headerTitleLabelLocator = By.xpath("//div[contains(text(), 'All Projects')]");
+    @FindBy(xpath = "//div[contains(text(), 'All Projects')]")
+    public WebElement headerTitleLabel;
 
-
-    public TopMenuPage topMenuPage;
+    @FindBy(id = "sidebar-projects-add")
+    public WebElement addProjectButton;
 
     // Блок инициализации страницы
     public DashboardPage(WebDriver driver) {
         super(driver);
-
-        topMenuPage = new TopMenuPage(driver);
-    }
-
-    @Override
-    protected By getPageIdentifier() {
-        return headerTitleLabelLocator;
     }
 
     public void openPageByUrl() {
@@ -31,7 +26,7 @@ public class DashboardPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getHeaderTitleLabel() { return driver.findElement(headerTitleLabelLocator); }
 
-    public boolean isHeaderTitleLabelDisplayed() { return getHeaderTitleLabel().isDisplayed(); }
+    public boolean isHeaderTitleLabelDisplayed() { return headerTitleLabel.isDisplayed(); }
 }
+

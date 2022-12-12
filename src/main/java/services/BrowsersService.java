@@ -6,11 +6,8 @@ import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class BrowsersService {
     private WebDriver driver = null;
@@ -32,11 +29,17 @@ public class BrowsersService {
                 driver = new ChromeDriver(chromeOptions);
 
                 break;
-            case "edge":
-                driverManagerType = DriverManagerType.EDGE;
+            case "firefox":
+                driverManagerType = DriverManagerType.FIREFOX;
                 WebDriverManager.getInstance(driverManagerType).setup();
 
-                driver = new EdgeDriver();
+                driver = new FirefoxDriver();
+                break;
+            case "safari":
+                driverManagerType = DriverManagerType.SAFARI;
+                WebDriverManager.getInstance(driverManagerType).setup();
+
+                driver = new SafariDriver();
                 break;
             default:
                 System.out.println("Browser " + ReadProperties.browserName() + " is not supported.");
@@ -45,10 +48,8 @@ public class BrowsersService {
     }
 
     public WebDriver getDriver() {
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
-        driver.manage().timeouts().getPageLoadTimeout();
 
         return driver;
     }

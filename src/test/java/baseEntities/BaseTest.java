@@ -7,21 +7,20 @@ import org.testng.annotations.BeforeMethod;
 import services.BrowsersService;
 import steps.LoginStep;
 
-public class BaseTest {
+public abstract class BaseTest {
     protected WebDriver driver;
     protected LoginStep loginStep;
 
     @BeforeMethod
     public void setUp() {
         driver = new BrowsersService().getDriver();
-        //driver.get(ReadProperties.getUrl());
+        driver.get(ReadProperties.getUrl());
 
-        //loginStep = new LoginStep(driver);
+        loginStep = new LoginStep(driver);
     }
 
     @AfterMethod
     public void tearDown() {
         driver.quit();
     }
-
 }

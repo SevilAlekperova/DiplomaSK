@@ -1,21 +1,38 @@
 package pages.projects;
 
-import org.openqa.selenium.By;
+import baseEntities.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import java.util.List;
 
-public class AddProjectPage extends BaseProjectPage{
-    private final By saveButtonLocator = By.id("accept");
+public class AddProjectPage extends BasePage {
+    // Блок описания селекторов для элементов
+    @FindBy(id = "name")
+    public WebElement name;
+
+    @FindBy(id = "announcement")
+    public WebElement announcement;
+
+    @FindBy(id = "show_announcement")
+    public WebElement showAnon;
+
+    @FindAll({
+            @FindBy(id = "suite_mode_single"),
+            @FindBy(id = "suite_mode_single_baseline"),
+            @FindBy(id = "suite_mode_multi")
+    })
+    public List<WebElement> types;
+
+    @FindBy(id = "accept")
+    public WebElement addButton;
+
+    @FindBy(xpath = "//div[@class='message message-error']")
+    public WebElement errorField;
+
+    // Блок инициализации страницы
     public AddProjectPage(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    protected By getPageIdentifier() {
-        return null;
-    }
-
-    public WebElement getSaveButton() {
-        return driver.findElement(saveButtonLocator);
     }
 }

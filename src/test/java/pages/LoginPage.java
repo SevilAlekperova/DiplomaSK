@@ -1,27 +1,42 @@
 package pages;
 
-import configuration.ReadProperties;
+import baseEntities.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import services.BrowsersService;
-import steps.LoginStep;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
-    protected WebDriver driver;
-    protected LoginStep loginStep;
+public class LoginPage extends BasePage {
+    // Блок описания селекторов для элементов
+    @FindBy(id = "name")
+    public WebElement emailInput;
 
-    @BeforeMethod
-    public void setUp() {
-        driver = new BrowsersService().getDriver();
-        driver.get(ReadProperties.getUrl());
+    @FindBy(id = "password")
+    public WebElement pswInput;
 
-        loginStep = new LoginStep(driver);
+    @FindBy(id = "button_primary")
+    public WebElement loginButton;
+
+    @FindBy(className = "error-text")
+    public WebElement errorText;
+
+    // Блок инициализации страницы
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
+    public void setEmail(String value) {
+        emailInput.sendKeys(value);
     }
 
+    public void setPsw(String value) {
+        pswInput.sendKeys(value);
+    }
+
+    public void clickLoginButton() {
+        loginButton.click();
+    }
+
+    public WebElement getErrorTextElement() {
+        return errorText;
+    }
 }
