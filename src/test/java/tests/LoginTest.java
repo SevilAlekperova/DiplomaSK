@@ -17,6 +17,20 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    public void success() {
+        loginStep.login(new User(ReadProperties.username(), ReadProperties.password()));
+
+        Assert.assertTrue(new DashboardPage(driver).isHeaderTitleLabelDisplayed());
+
+        DashboardPage dashboardPage = new DashboardPage(driver);
+
+        Assert.assertEquals(
+                dashboardPage.popUpMessage.getAttribute("tooltip-text")
+                , "Displays the active projects as a compact list. Useful if you have many projects.");
+
+    }
+
+    @Test
     public void successLoginTest1() {
         Assert.assertTrue(
                 loginStep.loginSuccessful(new User(ReadProperties.username(), ReadProperties.password())).isHeaderTitleLabelDisplayed()

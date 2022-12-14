@@ -16,10 +16,34 @@ public class DashboardPage extends BasePage {
     @FindBy(id = "sidebar-projects-add")
     public WebElement addProjectButton;
 
+    @FindBy(id = "navigation-admin")
+    public WebElement administrationButton;
+
+    @FindBy(id = "navigation-sub-projects")
+    public WebElement projectButton;
+
+    @FindBy(className = "icon-small-delete")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "//a[@class='link-tooltip']")
+    public WebElement popUpMessage;
+
+    @FindBy(xpath = "//div/div/div/div/div/label/input")
+    public WebElement confirmDeleteProjectCheckBox;
+
+    @FindBy(className = "button button-ok button-left button-positive dialog-action-default button-ok-disabled ")
+    public WebElement confirmDeleteProject;
+
     // Блок инициализации страницы
     public DashboardPage(WebDriver driver) {
         super(driver);
     }
+
+    public WebElement hoverPop() {
+        return popUpMessage;
+    }
+
+
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
