@@ -1,6 +1,7 @@
 package pages.projects;
 
 import baseEntities.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -8,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class AddProjectPage extends BasePage {
-    // Блок описания селекторов для элементов
     @FindBy(id = "name")
     public WebElement name;
 
@@ -34,5 +34,10 @@ public class AddProjectPage extends BasePage {
     // Блок инициализации страницы
     public AddProjectPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    protected By getPageIdentifier() {
+        return null;
     }
 }

@@ -7,7 +7,7 @@ import pages.DashboardPage;
 
 public class DashboardStep extends BaseStep {
 
-    DashboardPage dashboardPage;
+    private final DashboardPage dashboardPage;
 
     public DashboardStep(WebDriver driver) {
         super(driver);
@@ -15,8 +15,13 @@ public class DashboardStep extends BaseStep {
         dashboardPage = new DashboardPage(driver);
     }
 
-    public void dialogBox(){
-        dashboardPage.projectButton.click();
-        dashboardPage.deleteButton.click();
+
+    public void dash(){
+        dashboardPage.clickAdministrationButton();
+        dashboardPage.clickProjectButton();
+        dashboardPage.clickDeleteButton();
+        dashboardPage.clickConfirmDeleteProjectCheckBox();
+        dashboardPage.confirmDeleteProjectCheckBox();
+
     }
 }

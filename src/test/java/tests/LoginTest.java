@@ -25,7 +25,7 @@ public class LoginTest extends BaseTest {
         DashboardPage dashboardPage = new DashboardPage(driver);
 
         Assert.assertEquals(
-                dashboardPage.popUpMessage.getAttribute("tooltip-text")
+                dashboardPage.getPopUpMessage().getAttribute("tooltip-text")
                 , "Displays the active projects as a compact list. Useful if you have many projects.");
 
     }
