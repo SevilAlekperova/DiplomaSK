@@ -2,7 +2,6 @@ package steps;
 
 import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import pages.DashboardPage;
 
 public class DashboardStep extends BaseStep {
@@ -16,12 +15,18 @@ public class DashboardStep extends BaseStep {
     }
 
 
-    public void dash(){
+    public void dialogWindow(){
         dashboardPage.clickAdministrationButton();
         dashboardPage.clickProjectButton();
         dashboardPage.clickDeleteButton();
-        dashboardPage.clickConfirmDeleteProjectCheckBox();
+        dashboardPage.clickConfirmDeleteProjectButton();
         dashboardPage.confirmDeleteProjectCheckBox();
-
     }
+
+    public void deleteProject(){
+        dashboardPage.clickConfirmDeleteProjectButton();
+        dashboardPage.confirmDeleteProjectCheckBox();
+    }
+
+
 }

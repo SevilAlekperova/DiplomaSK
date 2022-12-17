@@ -4,21 +4,15 @@ import baseEntities.BaseTest;
 import configuration.ReadProperties;
 import models.Project;
 import models.User;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.InvalidArgumentException;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
+import pages.projects.AddProjectPage;
 import pages.projects.ProjectsPage;
-import steps.DashboardStep;
 import steps.ProjectsStep;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AddProjectTest extends BaseTest {
     private ProjectsStep addProjectStep;
@@ -51,6 +45,14 @@ public class AddProjectTest extends BaseTest {
     }
 
     @Test
+    public void maxLengthProjectNameFieldTest() {
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage.clickAddProjectButton();
+        AddProjectPage addProjectPage = new AddProjectPage(driver);
+        addProjectPage.name.sendKeys(RandomStringUtils.randomAlphabetic(251));
+    }
+
+    @Test
     public void uploadTest() throws InterruptedException {
         DashboardPage dashboardPage = new DashboardPage(driver);
         ProjectsPage projectsPage = new ProjectsPage(driver);
@@ -76,7 +78,13 @@ public class AddProjectTest extends BaseTest {
     }
 
     @Test
+    public void dialogWindowTest() {
+        dashboardStep.dialogWindow();
+    }
+
+    @Test
     public void deleteProjectTest() {
-        dashboardStep.dash();
+        dashboardStep.dialogWindow();
+        dashboardStep.deleteProject();
     }
 }

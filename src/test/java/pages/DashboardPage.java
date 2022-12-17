@@ -4,7 +4,6 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class DashboardPage extends BasePage {
     private final static String pagePath = "index.php?/dashboard";
@@ -52,7 +51,7 @@ public class DashboardPage extends BasePage {
     public void clickDeleteButton() { getDeleteButton().click(); }
     public void clickProjectButton() { getProjectButton().click(); }
     public void confirmDeleteProjectCheckBox() { getConfirmDeleteProjectCheckBox().click(); }
-    public void clickConfirmDeleteProjectCheckBox() { getConfirmDeleteProjectButton().click(); }
+    public void clickConfirmDeleteProjectButton() { getConfirmDeleteProjectButton().click(); }
     public void clickAddTestSuiteButton() { getAddTestSuiteButton().click(); }
 }
 
