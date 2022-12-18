@@ -65,9 +65,9 @@ public class AddProjectTest extends BaseTest {
         String pathToFileFixed = pathToFile.substring(1);
         System.out.println(pathToFileFixed);
         fileUploadPath.sendKeys(pathToFileFixed);
+        Thread.sleep(4000);
 
         projectsPage.add.click();
-        Thread.sleep(4000);
     }
 
 
