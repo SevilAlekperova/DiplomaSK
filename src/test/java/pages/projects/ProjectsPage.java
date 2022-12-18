@@ -25,7 +25,8 @@ public class ProjectsPage extends BasePage {
     //@FindBy(id = "libraryAddAttachment")
 
     //@FindBy(xpath = "//div[contains(@id, 'libraryAttachmentsAddItem')]/div[contains(@class, 'attachment-library-add-icon dz-clickable')]")
-    @FindBy(xpath = "//*[@id='libraryAttachmentsAddItem']/div")
+    //@FindBy(xpath = "//*[@id='libraryAttachmentsAddItem']/div")
+    @FindBy(xpath = "//*[@id='dialog-ident-attachmentNewDialogFile']/following::input[@type='file']")
     public WebElement addImageButton;
     @FindBy(id = "attachmentNewSubmit")
     public WebElement add;

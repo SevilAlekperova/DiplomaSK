@@ -14,7 +14,8 @@ public class DashboardPage extends BasePage {
     private final By deleteButtonLocator = By.className("icon-small-delete");
     private final By projectButtonLocator = By.id("navigation-sub-projects");
     private final By popUpMessageLocator = By.xpath("//a[@class='link-tooltip']");
-    private final By confirmDeleteProjectCheckBoxLocator = By.xpath("//div/div/div/div/div/label/input");
+    //private final By confirmDeleteProjectCheckBoxLocator = By.xpath("//div/div/div/div/div/label/input");
+    private final By confirmDeleteProjectCheckBoxLocator = By.xpath("//div/div/div/div/div/label/input[contains(@type, 'checkbox')]");
     private final By confirmDeleteProjectButtonLocator = By.xpath("//div/div/div/a[contains(text(), 'OK')]");
     private final By addTestSuiteButtonLocator = By.xpath("//div[contains(@class, 'table summary summary-auto')]/div[1]//a[1][contains(text(), 'test suite')]");
     // Блок инициализации страницы

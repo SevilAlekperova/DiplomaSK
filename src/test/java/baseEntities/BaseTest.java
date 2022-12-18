@@ -9,6 +9,7 @@ import pages.DashboardPage;
 import services.BrowsersService;
 import steps.DashboardStep;
 import steps.LoginStep;
+import steps.ProjectsStep;
 
 public abstract class BaseTest {
     protected WebDriver driver;
@@ -16,7 +17,7 @@ public abstract class BaseTest {
 
     protected DashboardStep dashboardStep;
 
-    protected DashboardPage dashboardPage;
+    private ProjectsStep addProjectStep;
 
 
     @BeforeMethod
@@ -27,6 +28,7 @@ public abstract class BaseTest {
 
         loginStep = new LoginStep(driver);
         dashboardStep = new DashboardStep(driver);
+        addProjectStep = new ProjectsStep(driver);
     }
 
     @AfterMethod

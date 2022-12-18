@@ -73,11 +73,6 @@ public class AddProjectTest extends BaseTest {
 
 
     @Test
-    public void createProjectFailureTest() {
-        Assert.assertTrue(addProjectStep.createProjectIncorrect().errorField.isDisplayed());
-    }
-
-    @Test
     public void dialogWindowTest() {
         dashboardStep.dialogWindow();
     }
