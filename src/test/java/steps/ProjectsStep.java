@@ -22,6 +22,7 @@ public class ProjectsStep extends BaseStep {
 
         if (project.isShowAnon()) {
             addProjectPage.showAnon.click();
+
         }
 
         addProjectPage.addButton.click();
@@ -29,9 +30,4 @@ public class ProjectsStep extends BaseStep {
         return new ProjectsPage(driver);
     }
 
-    public AddProjectPage createProjectIncorrect() {
-        addProjectPage.addButton.click();
-
-        return addProjectPage;
-    }
 }

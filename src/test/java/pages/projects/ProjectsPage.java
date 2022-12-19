@@ -1,26 +1,45 @@
 package pages.projects;
 
 import baseEntities.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class ProjectsPage extends BasePage{
+public class ProjectsPage extends BasePage {
 
-        private final static String pagePath = "index.php?/admin/projects/overview";
+    private final static String pagePath = "index.php?/admin/projects/overview";
 
-        // Блок описания селекторов для элементов
-        @FindBy(className = "page_title")
-        public WebElement title;
+    // Блок описания селекторов для элементов
+    @FindBy(className = "page_title")
+    public WebElement title;
 
-        @FindBy(xpath = "//tbody/tr[@class!='header']")
-        public List<WebElement> projects;
+    @FindBy(xpath = "//tbody/tr[@class!='header']")
+    public List<WebElement> projects;
 
-        // Блок инициализации страницы
-        public ProjectsPage(WebDriver driver) {
-            super(driver);
-        }
+    @FindBy(className = "icon-markdown-image")
+    public WebElement uploadFileIcon;
+
+    //@FindBy(id = "libraryAddAttachment")
+
+    //@FindBy(xpath = "//div[contains(@id, 'libraryAttachmentsAddItem')]/div[contains(@class, 'attachment-library-add-icon dz-clickable')]")
+    //@FindBy(xpath = "//*[@id='libraryAttachmentsAddItem']/div")
+    @FindBy(xpath = "//*[@id='dialog-ident-attachmentNewDialogFile']/following::input[@type='file']")
+    public WebElement addImageButton;
+    @FindBy(id = "attachmentNewSubmit")
+    public WebElement submitAddImage;
+
+
+    // Блок инициализации страницы
+    public ProjectsPage(WebDriver driver) {
+        super(driver);
+    }
+
+    @Override
+    protected By getPageIdentifier() {
+        return null;
+    }
 }
 
