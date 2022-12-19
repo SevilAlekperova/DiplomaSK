@@ -16,6 +16,8 @@ import steps.ProjectsStep;
 
 public class AddProjectTest extends BaseTest {
     private ProjectsStep addProjectStep;
+    DashboardPage dashboardPage = new DashboardPage(driver);
+
 
     @BeforeMethod
     @Override
@@ -29,7 +31,6 @@ public class AddProjectTest extends BaseTest {
 
     @Test
     public void createProjectSuccessTest() {
-        DashboardPage dashboardPage = new DashboardPage(driver);
         dashboardPage.clickAddProjectButton();
         addProjectStep = new ProjectsStep(driver);
         ProjectsPage projectsPage = addProjectStep.createProjectSuccessful(
