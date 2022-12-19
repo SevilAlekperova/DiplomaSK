@@ -29,10 +29,7 @@ public class ProjectsPage extends BasePage {
     @FindBy(xpath = "//*[@id='dialog-ident-attachmentNewDialogFile']/following::input[@type='file']")
     public WebElement addImageButton;
     @FindBy(id = "attachmentNewSubmit")
-    public WebElement add;
-//        public void addImage(String value) {
-//                addImageButton.sendKeys(value);
-//        }
+    public WebElement submitAddImage;
 
 
     // Блок инициализации страницы

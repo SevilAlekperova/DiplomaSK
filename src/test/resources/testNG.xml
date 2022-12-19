@@ -3,16 +3,14 @@
 <suite name="Main Suite">
     <test name="Smoke">
         <classes>
-            <class name="tests.AddProjectTest">
+            <class name="tests.UI.ProjectTest">
                 <methods>
                     <include name="createProjectSuccessTest"/>
-                    <include name="uploadTest"/>
                     <include name="deleteProjectTest"/>
                 </methods>
             </class>
-            <class name="tests.LoginTest">
+            <class name="tests.UI.LoginTest">
                 <methods>
-                    <include name="successLoginTest1"/>
                     <include name="successLoginTest"/>
                 </methods>
             </class>
@@ -20,18 +18,17 @@
     </test>
     <test name="Regression">
         <classes>
-            <class name="tests.LoginTest">
+            <class name="tests.UI.LoginTest">
               <methods>
-                  <include name="successLoginTest"/>
+                  <include name="incorrectUsernameTestWithDefect"/>
                   <include name="incorrectUsernameTest"/>
-                  <include name="success"/>
+                  <include name="popUpMessageTest"/>
               </methods>
             </class>
-            <class name="tests.AddProjectTest">
+            <class name="tests.UI.ProjectTest">
                 <methods>
-                    <include name="maxLengthProjectNameFieldTest"/>
-                    <include name="createProjectFailureTest"/>
-                    <include name="dialogWindowTest"/>
+                    <include name="maxLengthFieldTest"/>
+                    <include name="uploadTest"/>
                     <include name="dialogWindowTest"/>
                 </methods>
             </class>

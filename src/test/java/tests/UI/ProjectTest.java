@@ -1,4 +1,4 @@
-package tests;
+package tests.UI;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
@@ -14,13 +14,11 @@ import pages.projects.AddProjectPage;
 import pages.projects.ProjectsPage;
 import steps.ProjectsStep;
 
-public class AddProjectTest extends BaseTest {
+public class ProjectTest extends BaseTest {
     private ProjectsStep addProjectStep;
 
     @BeforeMethod
-    @Override
     public void setUp() {
-        super.setUp();
         loginStep.loginSuccessful(
                 new User(ReadProperties.username(), ReadProperties.password())
         );
@@ -43,11 +41,10 @@ public class AddProjectTest extends BaseTest {
     }
 
     @Test
-    public void maxLengthProjectNameFieldTest() {
-        DashboardPage dashboardPage = new DashboardPage(driver);
-        dashboardPage.clickAddProjectButton();
+    public void maxLengthFieldTest() {
+        dashboardStep.clickAddProject();
         AddProjectPage addProjectPage = new AddProjectPage(driver);
-        addProjectPage.name.sendKeys(RandomStringUtils.randomAlphabetic(251));
+        addProjectPage.name.sendKeys(RandomStringUtils.randomAlphabetic(256));
     }
 
     @Test
@@ -62,7 +59,7 @@ public class AddProjectTest extends BaseTest {
         System.out.println(pathToFileFixed);
         fileUploadPath.sendKeys(pathToFileFixed);
         Thread.sleep(4000);
-        projectsPage.add.click();
+        projectsPage.submitAddImage.click();
     }
 
 
@@ -77,3 +74,5 @@ public class AddProjectTest extends BaseTest {
         dashboardStep.deleteProject();
     }
 }
+
+

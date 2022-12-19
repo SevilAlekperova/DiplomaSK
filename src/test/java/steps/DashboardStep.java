@@ -14,6 +14,10 @@ public class DashboardStep extends BaseStep {
         dashboardPage = new DashboardPage(driver);
     }
 
+    public void clickAddProject(){
+        dashboardPage.clickAddProjectButton();
+    }
+
 
     public void dialogWindow(){
         dashboardPage.clickAdministrationButton();
