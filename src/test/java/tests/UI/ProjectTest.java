@@ -20,8 +20,7 @@ public class ProjectTest extends BaseTest {
     @BeforeMethod
     public void setUp() {
         loginStep.loginSuccessful(
-                new User(ReadProperties.username(), ReadProperties.password())
-        );
+                new User(ReadProperties.username(), ReadProperties.password()));
     }
 
     @Test
