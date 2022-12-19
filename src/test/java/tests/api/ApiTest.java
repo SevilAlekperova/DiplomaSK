@@ -24,7 +24,7 @@ public class ApiTest extends BaseApiTest {
     private int projectId;
 
     @Test
-    public void getAllUsers(){
+    public void getAllUsers() {
 
         given()
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
@@ -97,7 +97,7 @@ public class ApiTest extends BaseApiTest {
         Assert.assertEquals(responseContent.get("error"), "Field :project_id is not a valid or accessible project.");
     }
 
-    @Test(dependsOnMethods = {"createProjectSuccessTest", "getProjectSuccessTest"})
+    @Test//(dependsOnMethods = {"createProjectSuccessTest", "getProjectSuccessTest"})
     public void deleteProjectSuccessTest() {
         given()
                 .pathParam("project_id", projectId)

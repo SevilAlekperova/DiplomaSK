@@ -12,7 +12,6 @@ public class ProjectsPage extends BasePage {
 
     private final static String pagePath = "index.php?/admin/projects/overview";
 
-    // Блок описания селекторов для элементов
     @FindBy(className = "page_title")
     public WebElement title;
 
@@ -21,18 +20,11 @@ public class ProjectsPage extends BasePage {
 
     @FindBy(className = "icon-markdown-image")
     public WebElement uploadFileIcon;
-
-    //@FindBy(id = "libraryAddAttachment")
-
-    //@FindBy(xpath = "//div[contains(@id, 'libraryAttachmentsAddItem')]/div[contains(@class, 'attachment-library-add-icon dz-clickable')]")
-    //@FindBy(xpath = "//*[@id='libraryAttachmentsAddItem']/div")
     @FindBy(xpath = "//*[@id='dialog-ident-attachmentNewDialogFile']/following::input[@type='file']")
     public WebElement addImageButton;
     @FindBy(id = "attachmentNewSubmit")
     public WebElement submitAddImage;
 
-
-    // Блок инициализации страницы
     public ProjectsPage(WebDriver driver) {
         super(driver);
     }

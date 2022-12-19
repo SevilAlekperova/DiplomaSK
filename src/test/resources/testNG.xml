@@ -14,7 +14,14 @@
                     <include name="successLoginTest"/>
                 </methods>
             </class>
-        </classes>
+            <class name="tests.api.ApiTest">
+                    <methods>
+                        <include name="getAllUsers"/>
+                        <include name="createProjectSuccessTest"/>
+                        <include name="deleteProjectSuccessTest"/>
+                    </methods>
+                </class>
+            </classes>
     </test>
     <test name="Regression">
         <classes>
@@ -30,6 +37,12 @@
                     <include name="maxLengthFieldTest"/>
                     <include name="uploadTest"/>
                     <include name="dialogWindowTest"/>
+                </methods>
+            </class>
+            <class name="tests.api.ApiTest">
+                <methods>
+                    <include name="getUserNotExist"/>
+                    <include name="getProjectNotExist"/>
                 </methods>
             </class>
         </classes>

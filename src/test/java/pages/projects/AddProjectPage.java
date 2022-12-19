@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.List;
 
 public class AddProjectPage extends BasePage {
@@ -31,7 +32,6 @@ public class AddProjectPage extends BasePage {
     @FindBy(xpath = "//div[@class='message message-error']")
     public WebElement errorField;
 
-    // Блок инициализации страницы
     public AddProjectPage(WebDriver driver) {
         super(driver);
     }

@@ -14,21 +14,19 @@ public class DashboardStep extends BaseStep {
         dashboardPage = new DashboardPage(driver);
     }
 
-    public void clickAddProject(){
+    public void clickAddProject() {
         dashboardPage.clickAddProjectButton();
     }
 
 
-    public void dialogWindow(){
+    public void dialogWindow() {
         dashboardPage.clickAdministrationButton();
         dashboardPage.clickProjectButton();
         dashboardPage.clickDeleteButton();
     }
 
-    public void deleteProject(){
+    public void deleteProject() {
         dashboardPage.confirmDeleteProjectCheckBox();
         dashboardPage.clickConfirmDeleteProjectButton();
     }
-
-
 }
