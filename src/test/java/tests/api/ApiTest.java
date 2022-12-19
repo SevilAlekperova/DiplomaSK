@@ -97,7 +97,7 @@ public class ApiTest extends BaseApiTest {
         Assert.assertEquals(responseContent.get("error"), "Field :project_id is not a valid or accessible project.");
     }
 
-    @Test//(dependsOnMethods = {"createProjectSuccessTest", "getProjectSuccessTest"})
+    @Test
     public void deleteProjectSuccessTest() {
         given()
                 .pathParam("project_id", projectId)
