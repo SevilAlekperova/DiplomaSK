@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Suite">
+    <test name="Smoke">
+        <classes>
+            <class name="tests.UI.ProjectTest">
+                <methods>
+                    <include name="createProjectSuccessTest"/>
+                    <include name="deleteProjectTest"/>
+                </methods>
+            </class>
+            <class name="tests.UI.LoginTest">
+                <methods>
+                    <include name="successLoginTest"/>
+                </methods>
+            </class>
+            <class name="tests.api.ApiTest">
+                    <methods>
+                        <include name="getAllUsers"/>
+                        <include name="createProjectSuccessTest"/>
+                        <include name="deleteProjectSuccessTest"/>
+                    </methods>
+                </class>
+            </classes>
+    </test>
+    <test name="Regression">
+        <classes>
+            <class name="tests.UI.LoginTest">
+              <methods>
+                  <include name="incorrectUsernameTestWithDefect"/>
+                  <include name="incorrectUsernameTest"/>
+                  <include name="popUpMessageTest"/>
+              </methods>
+            </class>
+            <class name="tests.UI.ProjectTest">
+                <methods>
+                    <include name="maxLengthFieldTest"/>
+                    <include name="uploadTest"/>
+                    <include name="dialogWindowTest"/>
+                </methods>
+            </class>
+            <class name="tests.api.ApiTest">
+                <methods>
+                    <include name="getUserNotExist"/>
+                    <include name="getProjectNotExist"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
