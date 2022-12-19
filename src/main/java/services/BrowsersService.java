@@ -13,8 +13,11 @@ public class BrowsersService {
     private WebDriver driver = null;
 
     public BrowsersService() {
+
         switch (ReadProperties.browserName().toLowerCase()) {
             case "chrome":
+
+
                 DriverManagerType driverManagerType = DriverManagerType.CHROME;
                 WebDriverManager.getInstance(driverManagerType).setup();
 
