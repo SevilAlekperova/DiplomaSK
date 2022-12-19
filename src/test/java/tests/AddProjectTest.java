@@ -16,14 +16,11 @@ import steps.ProjectsStep;
 
 public class AddProjectTest extends BaseTest {
     private ProjectsStep addProjectStep;
-    DashboardPage dashboardPage = new DashboardPage(driver);
-
 
     @BeforeMethod
     @Override
     public void setUp() {
         super.setUp();
-
         loginStep.loginSuccessful(
                 new User(ReadProperties.username(), ReadProperties.password())
         );
@@ -31,6 +28,7 @@ public class AddProjectTest extends BaseTest {
 
     @Test
     public void createProjectSuccessTest() {
+        DashboardPage dashboardPage = new DashboardPage(driver);
         dashboardPage.clickAddProjectButton();
         addProjectStep = new ProjectsStep(driver);
         ProjectsPage projectsPage = addProjectStep.createProjectSuccessful(
@@ -41,7 +39,6 @@ public class AddProjectTest extends BaseTest {
                         .showAnon(true)
                         .build()
         );
-
         Assert.assertTrue(projectsPage.title.isDisplayed());
     }
 
@@ -59,18 +56,14 @@ public class AddProjectTest extends BaseTest {
         ProjectsPage projectsPage = new ProjectsPage(driver);
         dashboardPage.clickAddTestSuiteButton();
         projectsPage.uploadFileIcon.click();
-
-
         WebElement fileUploadPath = projectsPage.addImageButton;
         String pathToFile = this.getClass().getResource("/downloading.jpg").getPath();
         String pathToFileFixed = pathToFile.substring(1);
         System.out.println(pathToFileFixed);
         fileUploadPath.sendKeys(pathToFileFixed);
         Thread.sleep(4000);
-
         projectsPage.add.click();
     }
-
 
 
     @Test
